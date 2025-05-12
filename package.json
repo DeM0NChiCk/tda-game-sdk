@@ -1,0 +1,20 @@
+{
+  "name": "tda-game-sdk",
+  "version": "1.0.1",
+  "description": "my browser game analytics sdk",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "rollup": "^4.40.2",
+    "@rollup/plugin-terser": "^0.4.4"
+  }
+}
