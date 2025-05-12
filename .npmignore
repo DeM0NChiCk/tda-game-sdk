@@ -1,9 +1,8 @@
-
-src/
-
 .idea/
 
 *.html
 *.md
 *.log
 rollup.config.js
+
+*src

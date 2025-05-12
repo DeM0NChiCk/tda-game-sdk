@@ -1,8 +1,8 @@
 {
-  "name": "tda-game-sdk",
-  "version": "1.0.1",
+  "name": "tda-game-sdk-v1.0",
+  "version": "1.0.3",
   "description": "my browser game analytics sdk",
-  "main": "src/index.js",
+  "main": "dist/tda-sdk.umd.js",
   "type": "module",
   "scripts": {
     "build": "rollup -c"
@@ -16,5 +16,19 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "rollup": "^4.40.2",
     "@rollup/plugin-terser": "^0.4.4"
-  }
+  },
+  "keywords": [
+    "analytics",
+    "gaming",
+    "sdk",
+    "javascript",
+    "js",
+    "TDA",
+    "TDA-game-analytics"
+  ],
+  "author": "Dmitry 'DeM0NChiCk' Toropov",
+  "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ]
 }
