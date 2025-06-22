@@ -1,6 +1,6 @@
 {
   "name": "tda-game-sdk-v1.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "my browser game analytics sdk",
   "main": "dist/tda-sdk.umd.js",
   "type": "module",
