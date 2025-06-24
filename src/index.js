@@ -60,11 +60,13 @@ class TDAGameAnalyticsSDK {
     }
 
     _sendHTTPBulk(events) {
-        fetch(this.httpEndpoint, {
+
+        const url = `${this.httpEndpoint}?token=${this.token}&gameId=${this.gameId}`;
+
+        fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.token}`
             },
             body: JSON.stringify(events)
         }).catch(e => {
