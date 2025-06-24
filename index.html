@@ -6,16 +6,60 @@
 </head>
 <body>
 <h1>Game Analytics SDK Test</h1>
-<script src="dist/tda-sdk.umd.js"></script>
+
+<!-- Подключаем твою сборку SDK -->
+<script src="https://cdn.jsdelivr.net/npm/tda-game-sdk-v1.0@1.0.7-patch/dist/tda-sdk.umd.min.js"></script>
+
 <script>
+    // Инициализируем SDK с нужными параметрами
     const analytics = new TDAGameAnalyticsSDK({
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0ZGEuc2RrIiwiaXNzIjoidGRhLmFuYWx5dGljcyIsImFwaUtleSI6IjY2ZTI1Mzk1LTY2MGEtNDhkOS04YjAyLTc2Y2I1ZDFhYTg5YyJ9.X5nec3BvM7hBWRIkf4NkprkcCT5F56_oe0XFdIYNZ44",
-        gameId: "my-awesome-game",
+        token: "b8089e17dbd044f392cbacff18fa77c1",
+        gameId: "6859e3fdf4565f1eaf553ed0",
         httpEndpoint: "http://127.0.0.1:8080/collect",
-        wsEndpoint: "ws://localhost:8080/ws/metrics"
+        wsEndpoint: "ws://127.0.0.1:8080/ws/metrics"
     });
 
+
+    // Пример отслеживания начала уровня
     analytics.track("level_start", { level: 2 });
+
+    // Пример: фиксация взгляда (глазодвижение)
+    analytics.trackFixation({
+        x: 120,
+        y: 300,
+        duration: 800,
+        aoi: "enemy_button"
+    });
+
+    // Пример: результат задачи
+    analytics.trackTaskResult({
+        taskId: "tutorial-step-1",
+        success: true
+    });
+
+    // Пример: фиксация на стимуле
+    analytics.trackStimulusShown({
+        stimulusId: "stim-001",
+        aoi: "btn_continue"
+    });
+
+    // Пример: SEQ-оценка
+    analytics.trackSEQ({
+        taskId: "tutorial-step-1",
+        rating: 6
+    });
+
+    // Пример: отслеживание тепловой карты (вокселей)
+    analytics.trackHeatmap("level_1", [
+        { x: 1, y: 2, z: 3 },
+        { x: 2, y: 4, z: 6 }
+    ]);
+
+    // Пример: запуск и завершение задачи с таймером
+    analytics.trackTaskStart("boss-fight");
+    setTimeout(() => {
+        analytics.trackTaskEnd("boss-fight");
+    }, 5000);
 </script>
 </body>
 </html>
