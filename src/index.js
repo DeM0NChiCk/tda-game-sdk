@@ -159,11 +159,12 @@ class TDAGameAnalyticsSDK {
     }
 
     // Успешность задачи
-    trackTaskResult({ taskId, success, abandoned = false }) {
+    trackTaskResult({ taskId, success = false, abandoned = false, fail = false }) {
         this.track("task_result", {
             taskId,
             success,
-            abandoned
+            abandoned,
+            fail
         });
     }
 
